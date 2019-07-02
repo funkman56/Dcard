@@ -1,2 +1,2 @@
 # Dcard
-Dcard 熱門文章搜尋
+Dcard 熱門文章查詢
