@@ -86,16 +86,19 @@ while True :
                         http = link.get("href")
                         #print(http)
                         
-                        # 正規表示法
-                        A = re.compile("[0-9]+")
+                        #正規表示法
+                        A = re.compile("[0-9]+")                                 #表示任意數字串
+                        B = re.compile("[A-Za-z0-9\./_]+")                       #表達任意數字，任意英文字母和底線字元的組合，也可寫成 \w
                         
                         # search(string)的用法是傳回第一組符合正規表示法的字串
-                        Search = A.search(http)
-                        #print(Searh)
+                        Search1 = A.search(http)
+                        Search2 = B.search(http)                                 #去掉網址後面的中文字                               
+                        #print(Search1)
+                        #print(Search2)
                         
-                        print("文章ID :",Search.group())                        #傳回儲存在match物件中的值 group()
+                        print("文章ID :",Search1.group())                        #傳回儲存在match物件中的值 group()
                         
-                        print("網頁 ：https://www.dcard.tw%s" %(http))                        
+                        print("網頁 ：https://www.dcard.tw%s" %(Search2.group()))                        
                         
                     print("")
                 
@@ -120,11 +123,13 @@ while True :
                                            
                     http = link.get("href")
                     
-                    A = re.compile("[0-9]+")                                              
-                    Search = A.search(http)
-                    print("文章ID :",Search.group())                      
+                    A = re.compile("[0-9]+")
+                    B = re.compile("[A-Za-z0-9\./_]+")                                              
+                    Search1 = A.search(http)
+                    Search2 = B.search(http)
+                    print("文章ID :",Search1.group())                      
                     
-                    print("網頁 ：https://www.dcard.tw%s" %(http))
+                    print("網頁 ：https://www.dcard.tw%s" %(Search2.group()))
                     
                 print("")
                                               
