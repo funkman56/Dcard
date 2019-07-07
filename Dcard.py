@@ -14,6 +14,7 @@ DCARD 熱門前３０文章搜尋
 
 from bs4 import BeautifulSoup
 import requests
+import re
 
 url = "https://www.dcard.tw/f/"
 html = requests.get(url)
@@ -83,6 +84,17 @@ while True :
                     for link in data[i].find_all("a",{"class" : "PostEntry_root_V6g0rd"}) :
                         
                         http = link.get("href")
+                        #print(http)
+                        
+                        # 正規表示法
+                        A = re.compile("[0-9]+")
+                        
+                        # search(string)的用法是傳回第一組符合正規表示法的字串
+                        Search = A.search(http)
+                        #print(Searh)
+                        
+                        print("文章ID :",Search.group())                        #傳回儲存在match物件中的值 group()
+                        
                         print("網頁 ：https://www.dcard.tw%s" %(http))                        
                         
                     print("")
@@ -107,6 +119,11 @@ while True :
                 for link in data[i].find_all("a",{"class" : "PostEntry_root_V6g0rd"}) :
                                            
                     http = link.get("href")
+                    
+                    A = re.compile("[0-9]+")                                              
+                    Search = A.search(http)
+                    print("文章ID :",Search.group())                      
+                    
                     print("網頁 ：https://www.dcard.tw%s" %(http))
                     
                 print("")
