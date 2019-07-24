@@ -31,7 +31,7 @@ sp = BeautifulSoup(html.text,"html.parser")
 data = sp.select(".PostList_entry_1rq5Lf")                                       #若要搜尋標簽中的內容 必須先搜尋上一個標籤 否則會找不到 ex : href 先<div 不能先<a
   
   
-# print(data[0])
+#print(data[0])
 
 #for link in data[1].find_all("a",{"class" : "PostEntry_root_V6g0rd"}) :                                            
 #    
@@ -59,15 +59,16 @@ while True :
             
                 for i in range(int(number)-1,int(number)) :
                     
-                    data1 = data[i].find_all("h3",{"class" : "PostEntry_title_H5o4dj PostEntry_unread_2U217-"})
-                
+                   
+                    data1 = data[i].find_all("h3",{"class" : "Title__Text-v196i6-0 gmfDU"})
+                    
                     data2 = data[i].find_all("div",{"class" : "PostEntry_excerpt_2eHlNn"})
                 
-                    data3 = data[i].find_all("div",{"class" : "PostEntry__LikeCount-sc-140l15m-0 hlvyVg"})
+                    data3 = data[i].find_all("div",{"class" : "ActionBar__LikeCount-pwz3il-1 cGEHtj"})
                     
-                    data4 = data[i].find_all("span",{"class" : "PostEntry_comments_2iY8V3"})
+                    data4 = data[i].find_all("span",{"class" : "ActionBar__CommentWrapper-pwz3il-5 hkpJwJ"})
                     
-                    data5 = data[i].find_all("span",{"class" : "PostEntry_published_229om7"})
+                    data5 = data[i].find_all("span",{"class" : "Header__PublishedDateTime-xvcbwe-3 MDszy"})
                     
                                                                                
                     print("")
@@ -109,11 +110,11 @@ while True :
                 
                 data2 = data[i].find_all("div",{"class" : "PostEntry_reply_1oU-6z"})
                 
-                data3 = data[i].find_all("div",{"class" : "PostEntry__LikeCount-sc-140l15m-0 hlvyVg"})
+                data3 = data[i].find_all("div",{"class" : "ActionBar__LikeCount-pwz3il-1 cGEHtj"})
                     
-                data4 = data[i].find_all("span",{"class" : "PostEntry_comments_2iY8V3"})
+                data4 = data[i].find_all("span",{"class" : "ActionBar__CommentWrapper-pwz3il-5 hkpJwJ"})
                 
-                data5 = data[i].find_all("span",{"class" : "PostEntry_published_229om7"})
+                data5 = data[i].find_all("span",{"class" : "Header__PublishedDateTime-xvcbwe-3 MDszy"})
                     
                 print("簡介 :",data2[0].text)
                 print("表達心情數　：",data3[0].text)
